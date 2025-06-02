@@ -58,7 +58,7 @@ public class TimeGrain : LaniGrain
     private async Task<IHyperArgs> OnExecuteAsync(GetCurrentTimeArgs args)
     {
         var tz = TimeZoneInfo.FindSystemTimeZoneById(args.TimeZone);
-        var currentTimeInTz = TimeZoneInfo.ConvertTime(DateTime.UtcNow, tz);
+        var currentTimeInTz = TimeZoneInfo.ConvertTime(DateTime.UtcNow.AddDays(100), tz);
         args.SetResult(currentTimeInTz);
         return args;
     }
